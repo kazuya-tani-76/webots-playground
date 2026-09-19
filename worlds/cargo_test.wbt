@@ -1605,7 +1605,6 @@ Group {
       ]
       name "platform(1)"
       contactMaterial "platform"
-      boundingObject USE BOX
     }
     Solid {
       translation -9 9 0.25
@@ -1643,11 +1642,13 @@ Group {
         Shape {
           appearance CorrugatedMetal {
           }
-          geometry Box {
+          geometry DEF BOX Box {
             size 4 6 2
           }
         }
       ]
+      contactMaterial "platform"
+      boundingObject USE BOX
     }
     Solid {
       translation -2 3 1
@@ -1655,12 +1656,14 @@ Group {
         Shape {
           appearance CorrugatedMetal {
           }
-          geometry Box {
+          geometry DEF BOX Box {
             size 4 6 2
           }
         }
       ]
       name "solid(1)"
+      contactMaterial "platform"
+      boundingObject USE BOX
     }
     Solid {
       translation 6 7 1
@@ -1668,12 +1671,13 @@ Group {
         Shape {
           appearance CorrugatedMetal {
           }
-          geometry Box {
+          geometry DEF BOX Box {
             size 4 6 2
           }
         }
       ]
       name "solid(2)"
+      boundingObject USE BOX
     }
     Solid {
       translation 5 1 1
@@ -1681,12 +1685,14 @@ Group {
         Shape {
           appearance CorrugatedMetal {
           }
-          geometry Box {
+          geometry DEF BOX Box {
             size 10 2 2
           }
         }
       ]
       name "solid(3)"
+      contactMaterial "platform"
+      boundingObject USE BOX
     }
   ]
 }
