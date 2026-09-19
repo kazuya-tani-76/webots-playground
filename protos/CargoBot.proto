@@ -321,6 +321,7 @@ PROTO CargoBot [
               }
               RotationalMotor {
                 name "bodyMotor"
+                maxTorque 50
               }
             ]
             endPoint Solid {

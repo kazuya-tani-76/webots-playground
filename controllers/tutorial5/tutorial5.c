@@ -248,6 +248,7 @@ int moveto_state()
 		} else {
 			state = 3;
 		}
+		break;
 	}
 	case 2:	// 前方のマーカーへまっすぐ前進
 	{
