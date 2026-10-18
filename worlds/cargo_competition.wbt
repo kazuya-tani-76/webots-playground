@@ -1,4 +1,4 @@
-#VRML_SIM R2025b utf8
+#VRML_SIM R2025a utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -77,6 +77,64 @@ Group {
             }
           ]
           name "platform"
+          contactMaterial "platform"
+          boundingObject USE BOX
+        }
+        Solid {
+          translation -8 -7 1
+          children [
+            Shape {
+              appearance CorrugatedMetal {
+              }
+              geometry DEF BOX Box {
+                size 4 6 2
+              }
+            }
+          ]
+          contactMaterial "platform"
+          boundingObject USE BOX
+        }
+        Solid {
+          translation -2 3 1
+          children [
+            Shape {
+              appearance CorrugatedMetal {
+              }
+              geometry DEF BOX Box {
+                size 4 6 2
+              }
+            }
+          ]
+          name "solid(1)"
+          contactMaterial "platform"
+          boundingObject USE BOX
+        }
+        Solid {
+          translation 6 7 1
+          children [
+            Shape {
+              appearance CorrugatedMetal {
+              }
+              geometry DEF BOX Box {
+                size 4 6 2
+              }
+            }
+          ]
+          name "solid(2)"
+          boundingObject USE BOX
+        }
+        Solid {
+          translation 5 1 1
+          children [
+            Shape {
+              appearance CorrugatedMetal {
+              }
+              geometry DEF BOX Box {
+                size 10 2 2
+              }
+            }
+          ]
+          name "solid(3)"
           contactMaterial "platform"
           boundingObject USE BOX
         }
@@ -1591,87 +1649,25 @@ DEF Crate3 Crate {
   name "Crate3"
   status "broken"
 }
+DEF DropPointL1 DropPoint {
+  translation -1 -1 0.25
+  name "DropPointL1"
+  contactState "1"
+}
+DEF DropPointL2 DropPoint {
+  translation -9 9 0.25
+  name "DropPointL2"
+  contactState "0"
+}
+DEF DropPointL3 DropPoint {
+  translation 9 9 0.35
+  name "DropPointL3"
+  contactState "0"
+}
 CargoBot {
   translation -1 -5 0
   rotation 0 0 1 4.692820414042842e-06
   controller "tutorial5"
-}
-Group {
-  children [
-    DEF DropPointL1 DropPoint {
-      translation -1 -1 0.25
-      name "DropPointL1"
-      contactState "1"
-    }
-    DEF DropPointL2 DropPoint {
-      translation -9 9 0.25
-      name "DropPointL2"
-      contactState "0"
-    }
-    DEF DropPointL3 DropPoint {
-      translation 9 9 0.35
-      name "DropPointL3"
-      contactState "0"
-    }
-    Solid {
-      translation -8 -7 1
-      children [
-        Shape {
-          appearance CorrugatedMetal {
-          }
-          geometry DEF BOX Box {
-            size 4 6 2
-          }
-        }
-      ]
-      contactMaterial "platform"
-      boundingObject USE BOX
-    }
-    Solid {
-      translation -2 3 1
-      children [
-        Shape {
-          appearance CorrugatedMetal {
-          }
-          geometry DEF BOX Box {
-            size 4 6 2
-          }
-        }
-      ]
-      name "solid(1)"
-      contactMaterial "platform"
-      boundingObject USE BOX
-    }
-    Solid {
-      translation 6 7 1
-      children [
-        Shape {
-          appearance CorrugatedMetal {
-          }
-          geometry DEF BOX Box {
-            size 4 6 2
-          }
-        }
-      ]
-      name "solid(2)"
-      boundingObject USE BOX
-    }
-    Solid {
-      translation 5 1 1
-      children [
-        Shape {
-          appearance CorrugatedMetal {
-          }
-          geometry DEF BOX Box {
-            size 10 2 2
-          }
-        }
-      ]
-      name "solid(3)"
-      contactMaterial "platform"
-      boundingObject USE BOX
-    }
-  ]
 }
 Robot {
   children [
