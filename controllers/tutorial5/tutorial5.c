@@ -83,12 +83,12 @@ typedef struct CargoStatus {
 CargoStatus cargo_status;
 
 Command command_list[] = {
-	{CMD_POSITION,	{3,	3,	DIR_EAST}},
-	{CMD_MOVETO,	{4,	3,	0}},
+	{CMD_POSITION,	{4,	2,	DIR_EAST}},
+	{CMD_MOVETO,	{7,	2,	0}},
     {CMD_PICKUP,	{0,	0,	0}},
 	{CMD_TURN,		{TRN_LEFT, 0, 0}},
 	{CMD_TURN,		{TRN_LEFT, 0, 0}},
-	{CMD_MOVETO,	{3,	3,	0}},
+	{CMD_MOVETO,	{4,	2,	0}},
 	{CMD_TURN, 		{TRN_RIGHT,	0, 0}},
 	{CMD_PUTOFF,	{0,	0,	0}},
 };
@@ -641,6 +641,7 @@ int main(int argc, char **argv)
 			}
 		}
 	NEXT:
+	;	
 	}
 
 	/* This is necessary to cleanup webots resources */

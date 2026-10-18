@@ -1,4 +1,4 @@
-#VRML_SIM R2025a utf8
+#VRML_SIM R2025b utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -1587,8 +1587,9 @@ Crate {
   name "Crate(2)"
 }
 CargoBot {
-  translation 3 -9 0
+  translation -1 -5 0
   rotation 0 0 1 4.692820414042842e-06
+  controller "tutorial5"
 }
 Group {
   children [
@@ -1605,6 +1606,7 @@ Group {
       ]
       name "platform(1)"
       contactMaterial "platform"
+      boundingObject USE BOX
     }
     Solid {
       translation -9 9 0.25
