@@ -28,14 +28,18 @@ int main(int argc, char **argv) {
   double g_dat[3] = {0.0,0.0,0.0};
   wb_robot_init();
 
+  /* get the time step of the current world. */
+  const int time_step = (int) wb_robot_get_basic_time_step();
+
   // 加速度センサのセットアップ
   WbDeviceTag accel = wb_robot_get_device("accelerometer");
-  wb_accelerometer_enable(accel, TIME_STEP);
+  wb_accelerometer_enable(accel, time_step);
+  wb_robot_set_custom_data("intact");
 
   bool is_broken = false;
-  for (int i = 0; i < 60; i++) wb_robot_step(TIME_STEP);
+  for (int i = 0; i < 60; i++) wb_robot_step(time_step);
 
-  while (wb_robot_step(TIME_STEP) != -1) {
+  while (wb_robot_step(time_step) != -1) {
     if (!is_broken) {
       // センサ値を取得 (m/s^2)
       const double *values = wb_accelerometer_get_values(accel);

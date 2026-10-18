@@ -7,6 +7,7 @@ PROTO Crate [
   field SFRotation rotation 0 0 1 0
   field SFString name "Crate"
   field SFString controller "crate"
+  hiddenField SFString status ""
 ]
 {
   Robot {
@@ -14,6 +15,7 @@ PROTO Crate [
     rotation IS rotation
     name IS name
     controller IS controller
+    customData IS status
     children [
       Solid {
         translation 0.251 0.19 3.17853e-07

@@ -1,0 +1,50 @@
+#VRML_SIM R2025b utf8
+# 荷物置き場
+# tags: nonDeterministic
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/RoughConcrete.proto"
+
+PROTO DropPoint [
+  field SFVec3f size 2 2 0.5
+  field SFVec3f translation 0 0 0
+  field SFString name "DropPoint"
+  field SFString controller "drop_point"
+  hiddenField SFString contactState ""
+]
+{
+  Robot {
+    translation IS translation
+    name IS name
+    controller IS controller
+    customData IS contactState
+    children [
+      TouchSensor {
+        translation     0 0 0.255     # any vector
+        rotation        0 0 1 0   # unit axis, (-inf, inf) angle
+        type  "bumper"
+        name  "touchSensor"
+        boundingObject Box {
+          size 1.8 1.8 0.01
+        }
+      }
+      Solid {
+        translation 0 0 0
+        children [
+          Shape {
+            appearance RoughConcrete {
+            }
+            geometry DEF BOX Box {
+              size IS size
+            }
+          }
+        ]
+        contactMaterial "platform"
+        boundingObject USE BOX
+        physics Physics {
+          density -1
+          mass 10
+        }
+      }
+    ]
+  }
+}

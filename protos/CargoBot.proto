@@ -6,6 +6,7 @@ PROTO CargoBot [
   field SFVec3f translation 0 0 0
   field SFRotation rotation 0 0 1 0
   field SFString controller "cargo2"
+  field SFString name "cargo"
 ]
 {
   Robot {
@@ -386,6 +387,7 @@ PROTO CargoBot [
                         name "lift"
                         boundingObject USE BOX
                         physics Physics {
+                          density -1
                           mass 0.01
                         }
                       }
@@ -428,10 +430,14 @@ PROTO CargoBot [
         ]
         name "Shasi"
         physics Physics {
+          density -1
+          mass 0.01
         }
       }
     ]
     physics Physics {
+      density -1
+      mass 0.01
     }
   }
 }
