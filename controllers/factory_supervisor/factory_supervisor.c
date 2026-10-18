@@ -76,10 +76,6 @@ int main(int argc, char **argv) {
    * and leave the loop when the simulation is over
    */
   while (wb_robot_step(time_step) != -1) {
-    // clear
-    wb_display_set_color(display, 0xFFFFFF);
-    wb_display_fill_rectangle(display, 0, 0, 256, 256);
-    wb_display_set_color(display, 0);
     // 配達完了フラグチェック
     for (int i = 0; i < 3; i++) {
       WbFieldRef customData =
@@ -112,8 +108,6 @@ int main(int argc, char **argv) {
       dropPos[i] = wb_supervisor_field_get_sf_vec3f(translation);
     }
     for (int i = 0; i < 3; i++) {
-      char buff[32];
-
       if (dropState[i] == stateComplete && finalState[i] == stateInProgress) {
         for (int j = 0; j < 3; j++) {
           printf("%d:%d = %f\n", i,j,powf(dropPos[i][0] - cratePos[j][0], 2.0) + powf(dropPos[i][1] - cratePos[j][1], 2.0));
@@ -127,7 +121,13 @@ int main(int argc, char **argv) {
           }
         }
       }
-
+    }
+    // clear
+    wb_display_set_color(display, 0xFFFFFF);
+    wb_display_fill_rectangle(display, 0, 0, 256, 256);
+    wb_display_set_color(display, 0);
+    for (int i = 0; i < 3; i++) {
+      char buff[32];
       sprintf(buff, "Drop%d:%s %d'%02.2f", i, finalState[i], (int)(dropTime[i]/60), dropTime[i] - floorf(dropTime[i]/60)*60);
       wb_display_draw_text(display, buff, 0, i*24);
     }
